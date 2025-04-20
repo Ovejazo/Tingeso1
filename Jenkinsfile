@@ -1,14 +1,14 @@
 pipeline {
     agent any
     tools{
-        maven "maven"
+        maven 'maven'
     }
     stages{
         stage('Build JAR File'){
             steps{
                 checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Ovejazo/Tingeso1']])
                 dir("BackTingeso/payroll-backend"){
-                    bat 'mvn clean install'
+                    bat "mvn clean install"
                 }
             }
         }
